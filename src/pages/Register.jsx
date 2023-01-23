@@ -8,8 +8,9 @@ const Container = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   height:calc(100vh - 4rem);
+   height:100vh;
    gap:1.5rem;
+   padding-top: 3rem;
 `;
 
 const Title = styled.h1`
@@ -29,7 +30,6 @@ const Input = styled.input`
   &:focus{
     outline:none;
   }
-  
 `;
 
 const Button = styled.button`
@@ -53,35 +53,41 @@ const Label = styled.label`
   color:#707275;
 `;
 
-const RegBtn = styled(Button)`
+const LogBtn = styled(Button)`
   background-color:#f4f4f4;
   color:#707275;
 `;
 
-const Mail = styled.div`
+const Element = styled.div`
   display:flex;
   flex-direction: column;
 `;
 
-const Pass = styled(Mail)``;
 
 
-const SignIn = () => {
+const Register = () => {
   return (
     <Container>
-        <Title>Sign In</Title>
-        <Mail>
-        <Label>Email</Label>
+        <Title>Register</Title>
+        <Element>
+        <Label>First Name</Label>
         <Input type='text'/>
-        </Mail>
-        <Pass>
+        </Element>        
+        <Element>
+        <Label>Last Name</Label>
+        <Input type='text'/>
+        </Element>
+        <Element>
+        <Label>Email</Label>
+        <Input/>
+        </Element>
+        <Element>
         <Label>Password</Label>
         <Input type='password'/>
-        </Pass>
-        <Button>Sign In</Button>
-        <RegBtn>Register</RegBtn>
+        </Element>
+        <Button>Register</Button>
     </Container>
   )
 }
 
-export default SignIn
+export default Register
