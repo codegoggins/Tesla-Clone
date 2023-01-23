@@ -9,7 +9,7 @@ import ModelS from '../assets/model-s.jpg'
 import ModelX from '../assets/model-x.jpg'
 import SolarPanel from '../assets/solar-panel.jpg'
 import SolarRoof from '../assets/solar-roof.jpg'
-
+import Acc from '../assets/accessories.jpg'
 
 
 const Home = () => {
@@ -57,6 +57,12 @@ const Home = () => {
         bgImg = {SolarRoof}
         leftBtnText = "Order Now"
         rightBtnText = "Learn More"
+         />
+        <Main
+        title = "Accessories"
+        text = ""
+        bgImg = {Acc}
+        BtnText = "Shop Now"
          />
          {/* <SignIn/> */} 
          {/* <Register/> */}

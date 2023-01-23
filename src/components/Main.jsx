@@ -6,7 +6,6 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 const Container = styled.div`
    height: 100vh;
    width: 100%;
-   /* background-image: url('../assets/model-y.jpg'); */
    background-image: ${props => `url(${props.bgImage})`};
    background-size: cover;
    background-position: center;
@@ -79,6 +78,12 @@ const ButtonRight = styled(ButtonLeft)`
    opacity:0.70;
 `;
 
+const ButtonAcc = styled(ButtonLeft)`
+ color: white;
+ background-color: #171a20;
+ opacity:1;
+`;
+
 const DownArrow = styled.div`
    animation:bounce infinite 1s;
    color:white;
@@ -93,13 +98,24 @@ const Main = (props) => {
         <Text>
          {props.text}
         </Text>
-        <Line/>
+        {
+        props.title !== "Accessories" && <Line/>
+        }
     </Heading>
     <Bottom>
+            {
+            props.title === "Accessories" ?
+            (
         <Buttons>
-            <ButtonLeft>{props.leftBtnText}</ButtonLeft>
-            <ButtonRight>{props.rightBtnText}</ButtonRight>
+            <ButtonAcc>{props.BtnText}</ButtonAcc>
         </Buttons>
+            ):(
+            <Buttons>
+               <ButtonLeft>{props.leftBtnText}</ButtonLeft>
+               <ButtonRight>{props.rightBtnText}</ButtonRight>
+            </Buttons>
+            )
+            }
         <DownArrow>
             <KeyboardArrowDownOutlinedIcon fontSize='large'/>
         </DownArrow>

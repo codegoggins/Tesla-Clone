@@ -16,6 +16,7 @@ const Container = styled.div`
    background:transparent;
    position: fixed;
    top: 0;
+   z-index: 20;
 `;
 
 const Left = styled.img`
