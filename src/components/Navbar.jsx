@@ -7,12 +7,15 @@ import Logo from '../assets/logo.svg'
 
 
 const Container = styled.div`
+   width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
    padding: 1rem 2rem;
    height: 4rem;
    background:transparent;
+   position: fixed;
+   top: 0;
 `;
 
 const Left = styled.img`
@@ -50,7 +53,8 @@ const Item= styled.li`
 `
 
 const Menu = styled.div`
-      display: flex;
+      display: none;
+      /* display: flex; */
       align-items:center;
       justify-content: center;
       cursor: pointer;

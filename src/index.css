@@ -28,3 +28,9 @@ li{
   --nav-hover-btn:#dce8ee;
   --side-menu-hover:#f2f2f2;
 }
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+  40% {transform: translateY(-15px);} 
+  60% {transform: translateY(-10px);} 
+} 
