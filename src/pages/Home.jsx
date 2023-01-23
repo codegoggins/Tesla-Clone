@@ -10,6 +10,8 @@ import ModelX from '../assets/model-x.jpg'
 import SolarPanel from '../assets/solar-panel.jpg'
 import SolarRoof from '../assets/solar-roof.jpg'
 import Acc from '../assets/accessories.jpg'
+import Footer from '../components/Footer'
+
 
 
 const Home = () => {
@@ -64,6 +66,7 @@ const Home = () => {
         bgImg = {Acc}
         BtnText = "Shop Now"
          />
+         <Footer/>
          {/* <SignIn/> */} 
          {/* <Register/> */}
     </div>

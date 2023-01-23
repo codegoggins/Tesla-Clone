@@ -145,8 +145,13 @@ const Navbar = () => {
                  <CloseOutlinedIcon fontSize='large'/>
              </CloseBtn>
                  <SideMenuList>
-                     <SideItem>Existing Inventory</SideItem>
                      <SideItem>Model S</SideItem>
+                     <SideItem>Model 3</SideItem>
+                     <SideItem>Model X</SideItem>
+                     <SideItem>Model Y</SideItem>
+                     <SideItem>Solar Roof</SideItem>
+                     <SideItem>Solar Panels</SideItem>
+                     <SideItem>Existing Inventory</SideItem>
                      <SideItem>Used Inventory</SideItem>
                      <SideItem>Trade-In</SideItem>
                      <SideItem>Demo Drive</SideItem>
