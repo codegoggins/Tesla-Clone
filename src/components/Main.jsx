@@ -29,6 +29,10 @@ const Title = styled.h1`
    font-size: 2.7rem;
    font-weight: 700;
    color:#202328;
+
+   @media (max-width: 768px) {
+     font-size: 2.3rem;
+   }
 `;
 
 const Text = styled.p`
@@ -50,6 +54,10 @@ const Buttons = styled.div`
    display: flex;
    align-items: center;
    gap: 2rem;
+
+   @media (max-width: 768px) {
+     flex-direction: column;
+   }
 `;
 
 const Bottom = styled.div`

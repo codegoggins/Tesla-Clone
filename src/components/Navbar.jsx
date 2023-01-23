@@ -63,7 +63,7 @@ const SideMenu = styled.div`
   top: 0;
   right:0;
   height: 100vh;
-  width:25%;
+  width:18rem;
   background-color: white;
   overflow-y: scroll;
   z-index: 10;
@@ -103,6 +103,18 @@ const CloseBtn = styled.div`
   color: #707275;
 `;
 
+const Shop=styled.div`
+display:flex;
+margin-right: -1rem;
+
+@media (max-width: 768px) {
+      display:none;
+}
+
+`;
+const Menu=styled.div``;
+
+
 const Navbar = () => {
 
 
@@ -120,9 +132,13 @@ const Navbar = () => {
                 <Item>Solar Panels</Item>
              </Center>
              <Right>
+               <Shop>
                 <Item>Shop</Item>
                 <Item>Account</Item>
-                <Item onClick={()=>setToggle(!toggle)}>Menu</Item>
+               </Shop>
+               <Menu>
+                <Item onClick={()=>setToggle(!toggle)} style={{}}>Menu</Item>
+               </Menu>
              </Right>
              <SideMenu isToggle={toggle}>
              <CloseBtn onClick={()=>setToggle(!toggle)}>
