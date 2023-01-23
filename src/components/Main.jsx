@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import BgImg from '../assets/model-s.jpg';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+
 
 const Container = styled.div`
    height: 100vh;
    width: 100%;
-   background-image: url(${BgImg});
+   /* background-image: url('../assets/model-y.jpg'); */
+   background-image: ${props => `url(${props.bgImage})`};
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -84,21 +85,20 @@ const DownArrow = styled.div`
    cursor:pointer;
 `;
 
-const Main = () => {
+const Main = (props) => {
   return (
-    <Container>
+    <Container bgImage={props.bgImg}>
     <Heading>
-        <Title>Model Y</Title>
+        <Title>{props.title}</Title>
         <Text>
-        Schedule a Demo Drive
-        
+         {props.text}
         </Text>
         <Line/>
     </Heading>
     <Bottom>
         <Buttons>
-            <ButtonLeft>Custom Order</ButtonLeft>
-            <ButtonRight>View Inventory</ButtonRight>
+            <ButtonLeft>{props.leftBtnText}</ButtonLeft>
+            <ButtonRight>{props.rightBtnText}</ButtonRight>
         </Buttons>
         <DownArrow>
             <KeyboardArrowDownOutlinedIcon fontSize='large'/>
