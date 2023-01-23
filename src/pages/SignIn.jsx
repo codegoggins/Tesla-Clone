@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
    display:flex;
@@ -79,7 +80,9 @@ const SignIn = () => {
         <Input type='password'/>
         </Pass>
         <Button>Sign In</Button>
+        <Link to='/register'>
         <RegBtn>Register</RegBtn>
+        </Link>
     </Container>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
@@ -23,6 +24,7 @@ const Left = styled.img`
    height: 1rem;
    width: 6rem;
    object-fit: cover;
+   cursor: pointer;
 `;
 const Center = styled.ul`
    display: flex;
@@ -122,7 +124,9 @@ const Navbar = () => {
 
   return (
     <Container>
+    <Link to='/'>
              <Left src={Logo}/>
+    </Link>
              <Center>
                 <Item>Model S</Item>
                 <Item>Model 3</Item>
@@ -134,7 +138,9 @@ const Navbar = () => {
              <Right>
                <Shop>
                 <Item>Shop</Item>
+                <Link to='/login'>
                 <Item>Account</Item>
+                </Link>
                </Shop>
                <Menu>
                 <Item onClick={()=>setToggle(!toggle)} style={{}}>Menu</Item>
@@ -167,7 +173,9 @@ const Navbar = () => {
                      <SideItem>Support</SideItem>
                      <SideItem>Investor Relations</SideItem>
                      <SideItem>Shop</SideItem>
+                     <Link to='/login'>
                      <SideItem>Account</SideItem>
+                     </Link>
                  </SideMenuList>
              </SideMenu>
     </Container>

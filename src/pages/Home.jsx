@@ -12,7 +12,7 @@ import SolarRoof from '../assets/solar-roof.jpg'
 import Acc from '../assets/accessories.jpg'
 import Footer from '../components/Footer'
 
-
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -66,9 +66,6 @@ const Home = () => {
         bgImg = {Acc}
         BtnText = "Shop Now"
          />
-         <Footer/>
-         {/* <SignIn/> */} 
-         {/* <Register/> */}
     </div>
   )
 }
