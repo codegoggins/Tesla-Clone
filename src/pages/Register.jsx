@@ -53,11 +53,6 @@ const Label = styled.label`
   color:#707275;
 `;
 
-const LogBtn = styled(Button)`
-  background-color:#f4f4f4;
-  color:#707275;
-`;
-
 const Element = styled.div`
   display:flex;
   flex-direction: column;

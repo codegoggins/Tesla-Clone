@@ -26,12 +26,12 @@ const Footer = () => {
         <Text>Tesla-Clone 2023</Text>
         </Link>
         <Text>
-        <a href="https://github.com/codegoggins/tesla-clone" target='_blank'>
+        <a href="https://github.com/codegoggins/tesla-clone" target='_blank' rel='noreferrer'>
         ©codegoggins
         </a>
         </Text>
         <Text>
-        <a href="https://github.com/codegoggins" target='_blank'>
+        <a href="https://github.com/codegoggins" target='_blank' rel='noreferrer'>
         Github
         </a>
         </Text>
