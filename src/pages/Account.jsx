@@ -98,7 +98,11 @@ const Account = () => {
 
   return (
     <Container>
-        <Title>Nilay's Dashboard</Title>
+        {
+          <Title>
+          {user?.displayName + "'s Dashboard"}
+          </Title>
+        }
         <CardContainer>
             <Card>
                <CardImg src={d1}/>
