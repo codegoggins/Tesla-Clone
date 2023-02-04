@@ -10,6 +10,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  @media(max-width:500px){
+     flex-direction: column;
+     gap: 1rem;
+  }
   `;
 
 const Text = styled.span`

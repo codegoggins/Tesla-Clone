@@ -63,7 +63,11 @@ const Element = styled.div`
   flex-direction: column;
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+display: flex;
+flex-direction:column;
+gap: 1rem;
+`;
 
 const Register = () => {
 

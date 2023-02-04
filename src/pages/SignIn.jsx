@@ -14,7 +14,7 @@ const Container = styled.div`
    align-items: center;
    justify-content: center;
    height:calc(100vh - 4rem);
-   gap:1.5rem;
+   gap:2rem;
 `;
 
 const Title = styled.h1`
@@ -61,6 +61,7 @@ const Label = styled.label`
 const RegBtn = styled(Button)`
   background-color:#f4f4f4;
   color:#707275;
+  width:100%;
 `;
 
 const Mail = styled.div`
@@ -70,7 +71,11 @@ const Mail = styled.div`
 
 const Pass = styled(Mail)``;
 
-const Form = styled.form``;
+const Form = styled.form`
+display: flex;
+flex-direction:column;
+gap: 1rem;
+`;
 
 const SignIn = () => {
 
