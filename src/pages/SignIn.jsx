@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../firebase'
+import {login} from '../redux/userSlice'
 
 const Container = styled.div`
    display:flex;
@@ -66,20 +70,51 @@ const Mail = styled.div`
 
 const Pass = styled(Mail)``;
 
+const Form = styled.form``;
 
 const SignIn = () => {
+
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();   
+
+  const handleSignIn = async(e) => {
+    e.preventDefault();
+    try{
+        await signInWithEmailAndPassword(auth,email,password).then((response)=>{
+          dispatch(
+            login({
+              email:response.user.email,
+              uid:response.user.uid,
+              displayName:response.user.displayName
+            })
+          )
+          navigate('/tesla');
+        })
+    }catch(err){
+      console.log(err);
+    }
+  }
+
   return (
     <Container>
         <Title>Sign In</Title>
+        <Form onSubmit={handleSignIn}>
         <Mail>
         <Label>Email</Label>
-        <Input type='text'/>
+        <Input
+        onChange={(e)=>setEmail(e.target.value)} 
+        type='text'/>
         </Mail>
         <Pass>
         <Label>Password</Label>
-        <Input type='password'/>
+        <Input 
+        onChange={(e)=>setPassword(e.target.value)} 
+        type='password'/>
         </Pass>
         <Button>Sign In</Button>
+        </Form>
         <Link to='/register'>
         <RegBtn>Register</RegBtn>
         </Link>
