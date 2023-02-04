@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import {auth} from '../firebase'
+import {createUserWithEmailAndPassword,updateProfile} from 'firebase/auth'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {login} from '../redux/userSlice'
 
 const Container = styled.div`
    display:flex;
@@ -58,29 +63,70 @@ const Element = styled.div`
   flex-direction: column;
 `;
 
-
+const Form = styled.form``;
 
 const Register = () => {
+
+
+const [fName,setFName] = useState("");
+const [lName,setLName] = useState("");
+const [email,setEmail] = useState("");
+const [password,setPassword] = useState("");
+const dispatch = useDispatch();
+const navigate = useNavigate();
+
+const handleRegister = async(e) => {
+   e.preventDefault();
+   try{
+      await createUserWithEmailAndPassword(auth,email,password).then((response)=>{
+        updateProfile(response.user,{
+          displayName:fName,
+        }).then(()=>{
+          dispatch(
+            login({
+              email:response.user.email,
+              uid:response.user.uid,
+              displayName:fName
+            })
+          )
+          navigate('/tesla')
+        })
+      })
+   }catch(err){
+    console.log(err);
+   }
+}
+
   return (
     <Container>
         <Title>Register</Title>
+        <Form onSubmit={handleRegister}> 
         <Element>
         <Label>First Name</Label>
-        <Input type='text'/>
+        <Input
+         onChange={(e)=>setFName(e.target.value)}
+         type='text'/>
         </Element>        
         <Element>
         <Label>Last Name</Label>
-        <Input type='text'/>
+        <Input 
+        onChange={(e)=>setLName(e.target.value)}
+        type='text'/>
         </Element>
         <Element>
         <Label>Email</Label>
-        <Input/>
+        <Input 
+        onChange={(e)=>setEmail(e.target.value)}
+        type='text'/>
         </Element>
         <Element>
         <Label>Password</Label>
-        <Input type='password'/>
+        <Input 
+         onChange={(e)=>setPassword(e.target.value)}
+        type='password'/>
         </Element>
         <Button>Register</Button>
+        </Form>
     </Container>
   )
 }

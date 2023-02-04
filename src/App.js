@@ -9,6 +9,7 @@ import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Account from "./pages/Account";
 
 
 const Layout = () => {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element:<Register/>,
+      },
+      {
+        path: "/tesla",
+        element:<Account/>,
       },
     ]
   }

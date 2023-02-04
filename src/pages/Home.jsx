@@ -1,6 +1,5 @@
 import React from 'react'
 import Main from '../components/Main'
-import Navbar from '../components/Navbar'
 import ModelY from '../assets/model-y.jpg'
 import Model3 from '../assets/model-3.jpg'
 import ModelS from '../assets/model-s.jpg'
@@ -9,11 +8,9 @@ import SolarPanel from '../assets/solar-panel.jpg'
 import SolarRoof from '../assets/solar-roof.jpg'
 import Acc from '../assets/accessories.jpg'
 
-
 const Home = () => {
   return (
     <div>
-        <Navbar/>
         <Main
         title = "Model Y"
         text = "Schedule a Demo Drive"
