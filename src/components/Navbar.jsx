@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import {selectUser} from '../redux/userSlice'
+import { useSelector } from 'react-redux';
 
 // Logo
 import Logo from '../assets/logo.svg' 
@@ -119,8 +121,8 @@ const Menu=styled.div``;
 
 const Navbar = () => {
 
-
-   const [toggle,setToggle] = useState(false);
+  const [toggle,setToggle] = useState(false);
+  const user = useSelector(selectUser);
 
   return (
     <Container>
@@ -138,9 +140,17 @@ const Navbar = () => {
              <Right>
                <Shop>
                 <Item>Shop</Item>
-                <Link to='/login'>
-                <Item>Account</Item>
-                </Link>
+                {
+                  user ? (                
+                    <Link to='/tesla'>
+                    <Item>Account</Item>
+                    </Link>
+                ) :(
+                    <Link to='/login'>
+                    <Item>Account</Item>
+                    </Link>
+                  ) 
+                }
                </Shop>
                <Menu>
                 <Item onClick={()=>setToggle(!toggle)} style={{}}>Menu</Item>
