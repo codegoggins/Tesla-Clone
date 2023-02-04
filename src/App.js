@@ -3,14 +3,16 @@ import Home from "./pages/Home";
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet
+  Outlet,
+  Navigate
 } from "react-router-dom";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Account from "./pages/Account";
-
+import { useSelector } from "react-redux";
+import {selectUser} from './redux/userSlice'
 
 const Layout = () => {
   return (
@@ -20,6 +22,14 @@ const Layout = () => {
         <Footer/>
     </div>
   )
+}
+
+const ProtectedRoute = ({children}) => {
+   const user = useSelector(selectUser);
+   if(!user){
+      return <Navigate to='/'/>
+   }
+   return children;
 }
 
 const router = createBrowserRouter([
@@ -41,7 +51,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/tesla",
-        element:<Account/>,
+        element:
+        <ProtectedRoute>
+          <Account/>,
+        </ProtectedRoute>  
       },
     ]
   }
