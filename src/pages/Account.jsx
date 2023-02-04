@@ -1,9 +1,14 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { selectUser,logout} from '../redux/userSlice'
 import d1 from '../assets/dash1.jfif'
 import d2 from '../assets/dash2.png'
 import d3 from '../assets/dash3.jfif'
-
+import { useNavigate } from 'react-router-dom'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import {auth} from '../firebase'
+import { signOut } from 'firebase/auth'
 
 const Container = styled.div`
 display: flex;
@@ -15,6 +20,11 @@ const CardContainer = styled.div`
  display: flex;
  flex-wrap: wrap;
  gap: 2rem;
+ align-items:center;
+
+  @media(max-width:768px){
+    justify-content: center;
+  }
 `;
 const Title = styled.div`
   font-size: 2rem;
@@ -56,8 +66,36 @@ const CardBtn = styled.span`
  cursor: pointer;
 `;
 
+const SignOut = styled.div`
+  display: flex;
+  align-items: start;
+  gap: 0.3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+const Icon = styled.div`
+margin-top:0.4rem
+`;
 
 const Account = () => {
+
+  const user = useSelector(selectUser);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try{
+      await signOut(auth).then(()=>{
+        dispatch(logout());
+        navigate('/');
+      })
+    }catch(err){
+      console.log(err);
+    }
+  }
+
   return (
     <Container>
         <Title>Nilay's Dashboard</Title>
@@ -86,7 +124,14 @@ const Account = () => {
                </CardContent>
             </Card>
         </CardContainer>
-
+      <SignOut onClick={handleLogout}>
+      <Icon>
+         <ExitToAppIcon fontSize='large'/>
+      </Icon>
+      <p>
+      Sign Out
+      </p>
+      </SignOut>
     </Container>
   )
 }

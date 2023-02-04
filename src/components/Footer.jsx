@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  height: 4rem;
+  height: 100%;
   background-color:#171a20;
   padding: 2rem;
   display: flex;
