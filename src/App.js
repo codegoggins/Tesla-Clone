@@ -11,8 +11,11 @@ import SignIn from "./pages/SignIn";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Account from "./pages/Account";
-import { useSelector } from "react-redux";
-import {selectUser} from './redux/userSlice'
+import { useDispatch, useSelector } from "react-redux";
+import {selectUser,login,logout} from './redux/userSlice'
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 
 const Layout = () => {
   return (
@@ -61,6 +64,22 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    onAuthStateChanged(auth,(response)=>{
+       response ? (
+          dispatch(login({
+            email:response.email,
+            uid:response.uid,
+            displayName:response.displayName
+          }))
+       ) : (
+        dispatch(logout())
+       )
+    })
+  },[dispatch])
+
   return (
     <RouterProvider router={router}>
     <div className="App">
